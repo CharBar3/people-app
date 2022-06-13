@@ -47,10 +47,10 @@ app.get('/', (req, res) => {
 app.get('/people', async (req, res) => {
     try {
         const people = await People.find({})
-    res.send(people)
+    res.json(people)
     } catch (error) {
         console.log(`Error: ${error}`)
-        res.send({error: 'something went wrong - check console'})
+        res.json({error: 'something went wrong - check console'})
     }
 })
 
@@ -58,10 +58,10 @@ app.get('/people', async (req, res) => {
 app.post('/people', async (req, res) => {
     try {
         const person = await People.create(req.body);
-        res.send(person)
+        res.json(person)
     } catch (error) {
         console.log(`Error: ${error}`)
-        res.send({error: 'something went wrong - check console'})
+        res.json({error: 'something went wrong - check console'})
     }
 })
 
